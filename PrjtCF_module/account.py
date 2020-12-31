@@ -227,3 +227,13 @@ class Loan(object):
             return True
         else:
             return False
+
+def result(col_dict):
+    "col_dict = {'key': [key_class], 'col_name1', 'col_name2], ...]}"
+    result = dict()
+    for key, val in col_dict.items():
+        for i in range(1, len(val)):
+            result[(key, val[i])] = val[0].df[val[i]]
+    result = pd.DataFrame(result)
+
+    return result
